@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DynamicTableHeaderComponent } from './dynamic-table-header/dynamic-table-header.component';
 import { DynamicTableComponent } from './dynamic-table.component';
 
 @NgModule({
@@ -26,7 +27,7 @@ import { DynamicTableComponent } from './dynamic-table.component';
     MatSelectModule,
     MatSortModule,
   ],
-  declarations: [DynamicTableComponent],
+  declarations: [DynamicTableComponent, DynamicTableHeaderComponent],
   exports: [DynamicTableComponent],
 })
 export class DynamicTableModule {}
