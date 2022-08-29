@@ -1,4 +1,5 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -12,12 +13,17 @@ import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicTableHeaderComponent } from './dynamic-table-header/dynamic-table-header.component';
 import { DynamicTableComponent } from './dynamic-table.component';
+import { DynamicColumnDefDirective } from './dynamic-column-def.directive';
+import { BrowserModule } from '@angular/platform-browser';
+import { DynamicCellDefDirective } from './dynamic-cell-def.directive';
+import { DynamicHeaderCellDefDirective } from './dynamic-header-cell-def.directive';
 
 @NgModule({
   imports: [
+    BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     MatTableModule,
-    CommonModule,
     MatCheckboxModule,
     DragDropModule,
     MatPaginatorModule,
@@ -26,8 +32,10 @@ import { DynamicTableComponent } from './dynamic-table.component';
     MatRippleModule,
     MatSelectModule,
     MatSortModule,
+    OverlayModule
   ],
-  declarations: [DynamicTableComponent, DynamicTableHeaderComponent],
-  exports: [DynamicTableComponent],
+  declarations: [DynamicTableComponent, DynamicTableHeaderComponent, DynamicColumnDefDirective, DynamicCellDefDirective, DynamicHeaderCellDefDirective],
+  exports: [DynamicTableComponent, DynamicColumnDefDirective, DynamicTableHeaderComponent, DynamicCellDefDirective, DynamicHeaderCellDefDirective],
 })
 export class DynamicTableModule {}
+

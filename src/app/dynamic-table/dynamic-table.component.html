@@ -31,12 +31,31 @@
       *ngFor="let column of columns; let i = index"
       [matColumnDef]="column.field"
     >
-      <th mat-sort-header cdkDrag mat-header-cell *matHeaderCellDef>
+      <th  cdkDrag mat-header-cell *matHeaderCellDef>
         <dynamic-table-header>
-          {{ column.header }}
+          <div mat-sort-header>{{ column.headerName }}</div>
         </dynamic-table-header>
       </th>
       <td mat-cell *matCellDef="let element">{{ element[column.field] }}</td>
+    </ng-container>
+    <!--
+      Custom template rendering
+    -->
+    <ng-container
+      *ngFor="let column of columnDefs; let i = index"
+      [matColumnDef]="column.field"
+    >
+      <th  cdkDrag mat-header-cell *matHeaderCellDef >
+        <dynamic-table-header>
+          <div mat-sort-header>
+            <ng-container  *ngTemplateOutlet="column.dynamicHeaderCellDefDirective?.template; context: {$implicit: column, column: column}" ></ng-container>
+          </div>
+          
+        </dynamic-table-header>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngTemplateOutlet="column.dynamicCellDefDirective?.template; context: {$implicit: element, column: column}" ></ng-container>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -1,6 +1,10 @@
-<app-dynamic-table
+<dynamic-table
   [columns]="config"
   [dataSource]="dataSource"
-  rowSelectionMode="single"
 >
-</app-dynamic-table>
+  <dynamic-column-def dynamicColumnDef="symbol">
+    <div *dynamicHeaderCellDef="let column">{{column.field}}</div>
+    <div *dynamicCellDef="let element">{{element.symbol}}</div>
+  </dynamic-column-def>
+
+</dynamic-table>

@@ -3,25 +3,27 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import {
   AfterViewInit,
   Component,
+  ContentChildren,
   ElementRef,
-  HostListener,
   Input,
-  Renderer2,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { DynamicColumnDefDirective } from './dynamic-column-def.directive';
 export interface ColDef {
   field: string;
-  type: string;
-  header: string;
+  type: 'string' | 'number' | 'custom';
+  headerName: string;
   hide?: boolean;
   width?: number;
   index?: number;
 }
 @Component({
-  selector: 'app-dynamic-table',
+  selector: 'dynamic-table',
   templateUrl: './dynamic-table.component.html',
   styleUrls: ['./dynamic-table.component.scss'],
 })
@@ -29,6 +31,7 @@ export class DynamicTableComponent<T> implements AfterViewInit {
   @ViewChild(MatTable, { read: ElementRef }) private matTableRef: ElementRef;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @ContentChildren(DynamicColumnDefDirective) columnDefs!: QueryList<DynamicColumnDefDirective>;
 
   _displayedColumns: string[] = [];
   get displayedColumns() {
@@ -43,7 +46,7 @@ export class DynamicTableComponent<T> implements AfterViewInit {
     this._filteredDisplayedColumns = c
       .filter((e) => !e.hide)
       .map((e) => e.field);
-    this._columns = c;
+    this._columns = c.filter(e => e.type !== 'custom');
   }
 
   get columns() {

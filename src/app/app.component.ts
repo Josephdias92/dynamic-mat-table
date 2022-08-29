@@ -29,10 +29,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class AppComponent {
   config: ColDef[] = [
-    { header: 'Position', field: 'position', type: 'string' },
-    { header: 'Name', field: 'name', type: 'string' },
-    { header: 'Weight', field: 'weight', type: 'string' },
-    { header: 'Symbol', field: 'symbol', type: '' },
+    { headerName: 'Position', field: 'position', type: 'string' },
+    { headerName: 'Name', field: 'name', type: 'string' },
+    { headerName: 'Weight', field: 'weight', type: 'string' },
+    { headerName: 'Symbol', field: 'symbol', type: 'custom' },
+    
   ];
 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
