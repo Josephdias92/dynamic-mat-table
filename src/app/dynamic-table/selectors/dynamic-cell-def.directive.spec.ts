@@ -1,4 +1,4 @@
-import { DynamicCellDefDirective } from './dynamic-cell-def.directive';
+import { DynamicCellDefDirective } from "./dynamic-cell-def.directive";
 
 describe('DynamicCellDefDirective', () => {
   it('should create an instance', () => {

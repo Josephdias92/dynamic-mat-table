@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ColDef } from './dynamic-table/dynamic-table.component';
+import { ColDef } from "./dynamic-table/models/col-def";
 
 export interface PeriodicElement {
   name: string;

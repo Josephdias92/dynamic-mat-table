@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ColDef } from '../dynamic-table.component';
+import { ColDef } from "../models/col-def";
 
 @Component({
   selector: 'dynamic-table-header',

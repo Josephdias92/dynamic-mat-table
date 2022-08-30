@@ -13,10 +13,10 @@ import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicTableHeaderComponent } from './dynamic-table-header/dynamic-table-header.component';
 import { DynamicTableComponent } from './dynamic-table.component';
-import { DynamicColumnDefDirective } from './dynamic-column-def.directive';
 import { BrowserModule } from '@angular/platform-browser';
-import { DynamicCellDefDirective } from './dynamic-cell-def.directive';
-import { DynamicHeaderCellDefDirective } from './dynamic-header-cell-def.directive';
+import { DynamicColumnDefDirective } from './selectors/dynamic-column-def.directive';
+import { DynamicCellDefDirective } from './selectors/dynamic-cell-def.directive';
+import { DynamicHeaderCellDefDirective } from './selectors/dynamic-header-cell-def.directive';
 
 @NgModule({
   imports: [

@@ -3,7 +3,7 @@
   [dataSource]="dataSource"
 >
   <dynamic-column-def dynamicColumnDef="symbol">
-    <div *dynamicHeaderCellDef="let column">{{column.field}}</div>
+    <div *dynamicHeaderCellDef="let column">{{column.headerName}}</div>
     <div *dynamicCellDef="let element">{{element.symbol}}</div>
   </dynamic-column-def>
 
