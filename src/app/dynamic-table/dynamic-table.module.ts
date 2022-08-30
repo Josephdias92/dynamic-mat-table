@@ -14,8 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicTableHeaderComponent } from './dynamic-table-header/dynamic-table-header.component';
 import { DynamicTableComponent } from './dynamic-table.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { DynamicColumnDefDirective } from './selectors/dynamic-column-def.directive';
 import { DynamicCellDefDirective } from './selectors/dynamic-cell-def.directive';
+import { DynamicColumnDefDirective } from './selectors/dynamic-column-def.directive';
 import { DynamicHeaderCellDefDirective } from './selectors/dynamic-header-cell-def.directive';
 
 @NgModule({
